@@ -67,14 +67,17 @@ function findSpotForCol(x) {
   return null;
 }
 
+
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
+  
   // TODO: make a div and insert into correct table cell
   const piece = document.createElement("div");
   piece.classList.add("piece");
   piece.classList.add(`p${currPlayer}`);
-  piece.style.top = -50 * (y + 2);
+ 
+  
   const spot = document.getElementById(`${y}-${x}`);
   spot.append(piece);
 }
@@ -85,7 +88,6 @@ function endGame(msg) {
   // TODO: pop up alert message
   alert(msg);
 }
-
 /** handleClick: handle click of column top to play piece */
 
 function handleClick(evt) {
@@ -97,7 +99,7 @@ function handleClick(evt) {
   if (y === null) {
     return;
   }
-
+  
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
   board[y][x] = currPlayer;
@@ -107,7 +109,7 @@ function handleClick(evt) {
   if (checkForWin()) {
     return endGame(`Player ${currPlayer} won!`);
   }
-
+  
 
   // check for tie
   // TODO: check if all cells in board are filled; if so call, call endGame
@@ -126,7 +128,7 @@ function checkForWin() {
     // Check four cells to see if they're all color of current player
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
-
+    
     return cells.every(
       ([y, x]) =>
         y >= 0 &&
