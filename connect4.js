@@ -140,6 +140,9 @@ function checkForWin() {
   }
 
   // TODO: read and understand this code. Add comments to help you.
+  //for loop checks each cell. horiz, vert, diagDR, diagDL variables determine the structure
+  //of what is needed to win 
+  //if any of the variables appear then it will return as true and the current player is the winner.
 
   for (let y = 0; y < HEIGHT; y++) {
     for (let x = 0; x < WIDTH; x++) {
